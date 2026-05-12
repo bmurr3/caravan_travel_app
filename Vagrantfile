@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "generic/rhel9"
+  config.vm.box = "generic/rocky9"
   config.vm.box_version = "4.3.12"
 
   # Disable automatic box update checking. If you disable this, then
