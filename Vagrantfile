@@ -73,17 +73,6 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    dnf -y update
-    dnf -y install vim
-
-    wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz
-    wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.sign
-    tar -xzf git-2.9.5.tar.gz
-    cd git-2.9.5
-    make configure && ./configure --prefix=/usr/local
-    make all
-    make install
-
-    git --version
+    cd /vagrant && make setup
   SHELL
 end
