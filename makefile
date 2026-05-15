@@ -5,18 +5,23 @@ setup:
 	sudo dnf -y install snapd
 
 	sudo systemctl enable --now snapd.socket
-	sudo ln -s /var/lib/snapd/snap /snap
+	-sudo ln -s /var/lib/snapd/snap /snap
 
 	-sudo dnf config-manager --set-enabled crb
+	sudo dnf module list nodejs
+	sudo dnf module enable nodejs:20 -y
 
 	sudo dnf -y install vim curl wget unzip xz zip mesa-libGLU \
 		mesa-libGLU-devel libstdc++-devel git java-latest-openjdk-devel \
 		nodejs npm
 
-	sudo mkdir /installs || true
+	-sudo mkdir /installs
 	sudo chmod 777 /installs
 
 	git --version
+
+# 	sudo npm install -g npm
+	sudo npm install -g create-vite
 
 # 	flutter --version 1>/dev/null 2>&1; \
 # 	if [ $$? -ne 0 ]; then \
